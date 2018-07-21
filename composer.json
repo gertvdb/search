@@ -1,0 +1,23 @@
+{
+    "name": "gertvdb/searches",
+    "description": "Provide a standard way to do searches via search api",
+    "type": "drupal-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gert van den Buijs",
+            "email": "gertvandenbuijs@hotmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "drupal/core" : "~8.0",
+        "drupal/search_api": "~1.8"
+    }
+}

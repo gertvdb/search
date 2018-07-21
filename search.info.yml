@@ -1,0 +1,7 @@
+name: Search
+type: module
+description: Provide a standard way to do searches via search api
+package: Search
+core: '8.x'
+dependencies:
+  - search_api
