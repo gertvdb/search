@@ -20,7 +20,7 @@ use Drupal\searches\Search\Filters\StatusFilter;
 use Drupal\searches\Search\Sorters\CreationDateSorter;
 
 // Prepare Index.
-$index = new Index('kos');
+$index = new Index('my_index');
 
 // Prepare filters.
 $filters[] = new DataSourceFilter(['node']);
