@@ -1,4 +1,4 @@
-# Kos Search #
+# Searches #
 
 Provide a general wrapper class to execute searches.
 
@@ -8,19 +8,19 @@ Using the class.
  
 ```
 
-use Drupal\searches\Search;
-use Drupal\searches\SearchIndex;
-use Drupal\searches\SearchTerm;
-use Drupal\searches\FilterCollection;
-use Drupal\searches\SorterCollection;
+use Drupal\searches\Search\Search;
+use Drupal\searches\Search\Index\Index;
+use Drupal\searches\Search\Term\Term;
+use Drupal\searches\Search\Collection\FilterCollection;
+use Drupal\searches\Search\Collection\SorterCollection;
 
-use Drupal\searches\Filters\DataSourceFilter;
-use Drupal\searches\Filters\BundleFilter;
-use Drupal\searches\Filters\StatusFilter;
-use Drupal\searches\Sorters\PublicationDateSorter;
+use Drupal\searches\Search\Filters\DataSourceFilter;
+use Drupal\searches\Search\Filters\BundleFilter;
+use Drupal\searches\Search\Filters\StatusFilter;
+use Drupal\searches\Search\Sorters\CreationDateSorter;
 
 // Prepare Index.
-$index = new SearchIndex('kos');
+$index = new Index('kos');
 
 // Prepare filters.
 $filters[] = new DataSourceFilter(['node']);
@@ -30,13 +30,13 @@ $filters[] = new StatusFilter(TRUE);
 $filter_collection = new FilterCollection($filters);
 
 // Prepare sorters.
-$sorters[] = new PublicationDateSorter();
+$sorters[] = new CreationDateSorter();
 $sorter_collection = new SorterCollection($sorters);
 
 // Prepare search term.
 $parse_mode = \Drupal::service('plugin.manager.search_api.parse_mode')->createInstance('terms');
 $fields = ['title', 'description'];
-$term = new SearchTerm('Test', $parse_mode, $fields);
+$term = new Term('Test', $parse_mode, $fields);
 
 // Prepare search. (Search will not be executed untill method search is called upon object.)
 $search = new Search($index, $term, $filter_collection, $sorter_collection);
